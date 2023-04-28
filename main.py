@@ -1,8 +1,15 @@
 import requests
 
+london = 'https://wttr.in/{city}'.format(city='London')
+svo = 'https://wttr.in/svo'
+cherepovec = 'https://wttr.in/{city}?MnqT'.format(city='Череповец')
+
 payload = {'lang': 'ru'}
 
-cherepovec = 'https://wttr.in/{city}?MnqT'.format(city='Череповец')
-response = requests.get(cherepovec, params=payload)
+response_london = requests.get(london)
+response_svo = requests.get(svo)
+response_cherepovec = requests.get(cherepovec, params=payload)
 
-print(response.text)
+print(response_london.text)
+print(response_svo.text)
+print(response_cherepovec.text)
